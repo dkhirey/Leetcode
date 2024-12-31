@@ -22,3 +22,9 @@ class Solution:
         return n
         # overall runtime is O(n) 2ms - much more efficient :)
         # BOTTOMLINE - Set is efficient for lookups
+        
+        ## ChatGPT says-
+        ##Sets in Python are implemented using hash tables. \
+        # Each element is hashed to an index in an array, \
+        # allowing for average 𝑂(1) time complexity for lookups. \
+        # In contrast, lists require an 𝑂(𝑛) linear search.
