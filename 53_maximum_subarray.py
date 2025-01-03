@@ -24,3 +24,18 @@ class Solution:
         return mxsum
     
 ## simple solution with O(n) runtime complexity 66ms
+
+#---------------------------------------------------------#
+## another approach
+
+def maxSubArray(nums):
+    largest = currentsum = nums[0]
+    for i in range(1,len(nums)):
+        #print('num...',nums[i])
+        currentsum = max(currentsum+nums[i],nums[i]) 
+        #print('currentsum...',currentsum)
+        largest = max(currentsum,largest)
+        #print('largest...',largest)
+    return largest
+
+## This takes 98s runtime complexity O(n)
