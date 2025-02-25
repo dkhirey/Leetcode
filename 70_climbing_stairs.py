@@ -18,4 +18,24 @@ class Solution:
 
     ### similar to fibonacci top down DP approach
     # time complexity O(n)
-        
+    
+### Alternate approach - traversing in reverse direction
+class Solution:
+    # time complexity O(n)
+    # space complexity O(1)
+    # for example if n = 5 then ways = [1,2,3,5,8]
+    # ways[0] = 1
+    def climbStairs(self, n: int) -> int:
+        # if there is only 1 step there is only 1 way
+        last, butone = 1,1        
+        # for i in range(n-1):
+        #     butone, last = last, last + butone
+        for i in range(-3,-1,-1):
+            # loop runs for n-3 times as we are starting from 3rd last element
+            # and goes upto 1st element 
+            # butone is last element and last is sum of last and butone
+            temp = last
+            last = last + butone
+            butone = temp
+            # return last element as we reach to top of stairs
+        return last
