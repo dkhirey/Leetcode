@@ -30,7 +30,7 @@ class Solution:
         last, butone = 1,1        
         # for i in range(n-1):
         #     butone, last = last, last + butone
-        for i in range(-3,-1,-1):
+        for i in range(n-1):
             # loop runs for n-3 times as we are starting from 3rd last element
             # and goes upto 1st element 
             # butone is last element and last is sum of last and butone
