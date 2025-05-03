@@ -15,8 +15,7 @@ class pascal():
                 else:
                     # calculating the value of each element using the formula
                     print(pascal.factorial(i) // (pascal.factorial(j) * pascal.factorial(i-j)), end=" ")
-            print()
-        # print("*"*n if n%2==0 else "$"*n)  
+            print() 
     def factorial(n):
         if n == 0 or n == 1:
             return 1
@@ -54,8 +53,7 @@ class pascal():
                 else:
                     # calculating the value of each element using the formula
                     print(pascal.factorial(i) // (pascal.factorial(j) * pascal.factorial(i-j)), end=" ")
-            print()
-        # print("*"*n if n%2==0 else "$"*n)  
+            print() 
     def factorial(n):
         if n in pascal.memo:
             return pascal.memo[n]
@@ -100,7 +98,6 @@ class pascal():
                     dp[i][j] = dp[i-1][j-1] + dp[i-1][j]
                     print(dp[i][j], end=" ")
             print()
-        # print("*"*n if n%2==0 else "$"*n)
 
 # this is a simple implementation of pascal triangle using dynamic programming
 # The above code is a simple implementation of Pascal's triangle in Python using dynamic programming.
