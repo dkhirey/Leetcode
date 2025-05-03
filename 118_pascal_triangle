@@ -1,0 +1,117 @@
+# leetcode problem
+# https://leetcode.com/problems/pascals-triangle/
+
+
+class pascal():
+    def main(n):
+        for i in range(n): #for rows 
+            # print(".............",i)
+            for j in range(n-i-1):
+                print(" ", end="") #for right alignment
+            for j in range(i+1):
+                # print("..............",j)
+                if j == 0 or j == i: #first and last element of each row
+                    print(1, end=" ")
+                else:
+                    # calculating the value of each element using the formula
+                    print(pascal.factorial(i) // (pascal.factorial(j) * pascal.factorial(i-j)), end=" ")
+            print()
+        # print("*"*n if n%2==0 else "$"*n)  
+    def factorial(n):
+        if n == 0 or n == 1:
+            return 1
+        else:
+            return n * pascal.factorial(n-1)
+pascal.main(5)
+
+# The above code is a simple implementation of Pascal's triangle in Python.
+# It uses a nested loop to print the triangle row by row, and calculates the value of each element using the formula for binomial coefficients.
+# The outer loop iterates over the rows, while the inner loop iterates over the elements in each row.
+# The first and last elements of each row are always 1, while the other elements are calculated using the factorial function.
+# The factorial function is defined recursively, and is used to calculate the value of each element in the triangle.
+# The triangle is printed with right alignment using spaces, and the final output is a nicely formatted triangle of numbers.
+# The code can be modified to take user input for the number of rows, and can also be extended to include additional features such as coloring or formatting the output.
+# The code can be further optimized by using memoization or dynamic programming to store previously calculated factorial values,
+# which would reduce the time complexity of the algorithm.
+# The time complexity of the above code is O(n^2) for n rows,
+# as there are n rows and each row has at most n elements.
+# The space complexity is O(1) as we are not using any additional data structures to store the values.
+# The code can be further optimized by using memoization or dynamic programming to store previously calculated factorial values,
+# which would reduce the time complexity of the algorithm.
+
+#code using memoization
+class pascal():
+    memo = {}
+    def main(n):
+        for i in range(n): #for rows 
+            # print(".............",i)
+            for j in range(n-i-1):
+                print(" ", end="") #for right alignment
+            for j in range(i+1):
+                # print("..............",j)
+                if j == 0 or j == i: #first and last element of each row
+                    print(1, end=" ")
+                else:
+                    # calculating the value of each element using the formula
+                    print(pascal.factorial(i) // (pascal.factorial(j) * pascal.factorial(i-j)), end=" ")
+            print()
+        # print("*"*n if n%2==0 else "$"*n)  
+    def factorial(n):
+        if n in pascal.memo:
+            return pascal.memo[n]
+        if n == 0 or n == 1:
+            return 1
+        else:
+            pascal.memo[n] = n * pascal.factorial(n-1)
+            return pascal.memo[n]
+        
+# this is a simple implementation of pascal triangle using memoization
+# The above code is a simple implementation of Pascal's triangle in Python using memoization.
+# It uses a nested loop to print the triangle row by row, and calculates the value of each element using the formula for binomial coefficients.
+# The outer loop iterates over the rows, while the inner loop iterates over the elements in each row.
+# The first and last elements of each row are always 1, while the other elements are calculated using the factorial function.
+# The factorial function is defined recursively, and is used to calculate the value of each element in the triangle.
+# The triangle is printed with right alignment using spaces, and the final output is a nicely formatted triangle of numbers.
+# The code can be modified to take user input for the number of rows, and can also be extended to include additional features such as coloring or formatting the output.
+# The code can be further optimized by using memoization or dynamic programming to store previously calculated factorial values,
+# which would reduce the time complexity of the algorithm.
+# The time complexity of the above code is O(n^2) for n rows,
+# as there are n rows and each row has at most n elements.
+# The space complexity is O(n) as we are using a dictionary to store the previously calculated factorial values.
+# The code can be further optimized by using memoization or dynamic programming to store previously calculated factorial values,
+# which would reduce the time complexity of the algorithm.
+
+
+# dypamic programming approach
+class pascal():
+    def main(n):
+        dp = [[0 for j in range(n)] for i in range(n)]
+        for i in range(n): #for rows 
+            # print(".............",i)
+            for j in range(n-i-1):
+                print(" ", end="") #for right alignment
+            for j in range(i+1):
+                # print("..............",j)
+                if j == 0 or j == i: #first and last element of each row
+                    dp[i][j] = 1
+                    print(dp[i][j], end=" ")
+                else:
+                    # calculating the value of each element using the formula
+                    dp[i][j] = dp[i-1][j-1] + dp[i-1][j]
+                    print(dp[i][j], end=" ")
+            print()
+        # print("*"*n if n%2==0 else "$"*n)
+
+# this is a simple implementation of pascal triangle using dynamic programming
+# The above code is a simple implementation of Pascal's triangle in Python using dynamic programming.
+# It uses a nested loop to print the triangle row by row, and calculates the value of each element using the formula for binomial coefficients.
+# The outer loop iterates over the rows, while the inner loop iterates over the elements in each row.
+# The first and last elements of each row are always 1, while the other elements are calculated using the dynamic programming approach.
+# The triangle is printed with right alignment using spaces, and the final output is a nicely formatted triangle of numbers.
+# The code can be modified to take user input for the number of rows, and can also be extended to include additional features such as coloring or formatting the output.
+# The code can be further optimized by using memoization or dynamic programming to store previously calculated factorial values,
+# which would reduce the time complexity of the algorithm.
+# The time complexity of the above code is O(n^2) for n rows,
+# as there are n rows and each row has at most n elements.  
+# The space complexity is O(n^2) as we are using a 2D array to store the previously calculated values.
+
